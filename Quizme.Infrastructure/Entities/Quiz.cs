@@ -11,6 +11,9 @@ public class Quiz : BaseEntity
     public int RespondentId { get; set; }
     public User Respondent { get; set; } //person taking exam
 
+    public int QuestionSetId { get; set; }
+    public QuestionSet QuestionSet { get; set; }
+    
     public IEnumerable<Question> Questions { get; set; } //random set of questions
     
     //invalid answers list

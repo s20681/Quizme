@@ -43,9 +43,22 @@ public class QuizRepository : IQuizRepository
 
     public async Task AddAsync(Quiz entity)
     {
-        entity.DateOfCreation = DateTime.Now;
-        await _mainContext.AddAsync(entity);
-        await _mainContext.SaveChangesAsync();
+        //checks if quiz with same 
+        var quizAlreadyFound = await _mainContext.Quiz.SingleOrDefaultAsync(
+            x => x.Respondent == entity.Respondent
+                 && x.QuestionSet == entity.QuestionSet
+                 && x.DateOfCreation.Date == entity.DateOfCreation.Date) != null;
+
+        if (quizAlreadyFound)
+            throw new DuplicateEntityException();
+        else
+        {
+            entity.DateOfCreation = DateTime.Now;
+            await _mainContext.AddAsync(entity);
+            await _mainContext.SaveChangesAsync();    
+        }
+        
+        
     }
 
     public async Task UpdateAsync(Quiz entity)
