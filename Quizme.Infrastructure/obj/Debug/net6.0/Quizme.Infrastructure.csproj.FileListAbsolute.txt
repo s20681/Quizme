@@ -12,3 +12,6 @@
 /home/mza/RiderProjects/Quizme.API/Quizme.Infrastructure/obj/Debug/net6.0/ref/Quizme.Infrastructure.dll
 /home/mza/RiderProjects/Quizme.API/Quizme.Infrastructure/bin/Debug/net6.0/Quizme.Infrastructure.runtimeconfig.json
 /home/mza/RiderProjects/Quizme.API/Quizme.Infrastructure/obj/Debug/net6.0/Quizme.Infrastructure.genruntimeconfig.cache
+/home/mza/RiderProjects/Quizme.API/Quizme.Infrastructure/bin/Debug/net6.0/Quizme.Core.dll
+/home/mza/RiderProjects/Quizme.API/Quizme.Infrastructure/bin/Debug/net6.0/Quizme.Core.pdb
+/home/mza/RiderProjects/Quizme.API/Quizme.Infrastructure/obj/Debug/net6.0/Quizme.Infrastructure.csproj.CopyComplete

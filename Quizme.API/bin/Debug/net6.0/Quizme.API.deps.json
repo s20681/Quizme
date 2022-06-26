@@ -361,9 +361,6 @@
         }
       },
       "Quizme.Core/1.0.0": {
-        "dependencies": {
-          "Quizme.Infrastructure": "1.0.0"
-        },
         "runtime": {
           "Quizme.Core.dll": {}
         }
@@ -371,7 +368,8 @@
       "Quizme.Infrastructure/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "6.0.3",
-          "Microsoft.EntityFrameworkCore.Sqlite": "6.0.3"
+          "Microsoft.EntityFrameworkCore.Sqlite": "6.0.3",
+          "Quizme.Core": "1.0.0"
         },
         "runtime": {
           "Quizme.Infrastructure.dll": {}

@@ -460,6 +460,16 @@
         "build": {
           "buildTransitive/netcoreapp3.1/_._": {}
         }
+      },
+      "Quizme.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Quizme.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Quizme.Core.dll": {}
+        }
       }
     }
   },
@@ -1120,13 +1130,19 @@
         "system.text.json.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "Quizme.Core/1.0.0": {
+      "type": "project",
+      "path": "../Quizme.Core/Quizme.Core.csproj",
+      "msbuildProject": "../Quizme.Core/Quizme.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "Microsoft.EntityFrameworkCore >= 6.0.3",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.3",
-      "Microsoft.EntityFrameworkCore.Sqlite >= 6.0.3"
+      "Microsoft.EntityFrameworkCore.Sqlite >= 6.0.3",
+      "Quizme.Core >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -1153,7 +1169,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/home/mza/RiderProjects/Quizme.API/Quizme.Core/Quizme.Core.csproj": {
+              "projectPath": "/home/mza/RiderProjects/Quizme.API/Quizme.Core/Quizme.Core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
