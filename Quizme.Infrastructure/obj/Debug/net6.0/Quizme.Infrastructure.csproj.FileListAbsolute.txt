@@ -1,0 +1,14 @@
+/home/mza/RiderProjects/Quizme.API/Quizme.Infrastructure/bin/Debug/net6.0/Quizme.Infrastructure.deps.json
+/home/mza/RiderProjects/Quizme.API/Quizme.Infrastructure/bin/Debug/net6.0/Quizme.Infrastructure.dll
+/home/mza/RiderProjects/Quizme.API/Quizme.Infrastructure/bin/Debug/net6.0/Quizme.Infrastructure.pdb
+/home/mza/RiderProjects/Quizme.API/Quizme.Infrastructure/obj/Debug/net6.0/Quizme.Infrastructure.csproj.AssemblyReference.cache
+/home/mza/RiderProjects/Quizme.API/Quizme.Infrastructure/obj/Debug/net6.0/Quizme.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/home/mza/RiderProjects/Quizme.API/Quizme.Infrastructure/obj/Debug/net6.0/Quizme.Infrastructure.AssemblyInfoInputs.cache
+/home/mza/RiderProjects/Quizme.API/Quizme.Infrastructure/obj/Debug/net6.0/Quizme.Infrastructure.AssemblyInfo.cs
+/home/mza/RiderProjects/Quizme.API/Quizme.Infrastructure/obj/Debug/net6.0/Quizme.Infrastructure.csproj.CoreCompileInputs.cache
+/home/mza/RiderProjects/Quizme.API/Quizme.Infrastructure/obj/Debug/net6.0/Quizme.Infrastructure.dll
+/home/mza/RiderProjects/Quizme.API/Quizme.Infrastructure/obj/Debug/net6.0/refint/Quizme.Infrastructure.dll
+/home/mza/RiderProjects/Quizme.API/Quizme.Infrastructure/obj/Debug/net6.0/Quizme.Infrastructure.pdb
+/home/mza/RiderProjects/Quizme.API/Quizme.Infrastructure/obj/Debug/net6.0/ref/Quizme.Infrastructure.dll
+/home/mza/RiderProjects/Quizme.API/Quizme.Infrastructure/bin/Debug/net6.0/Quizme.Infrastructure.runtimeconfig.json
+/home/mza/RiderProjects/Quizme.API/Quizme.Infrastructure/obj/Debug/net6.0/Quizme.Infrastructure.genruntimeconfig.cache

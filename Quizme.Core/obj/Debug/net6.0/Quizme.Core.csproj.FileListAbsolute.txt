@@ -1,0 +1,15 @@
+/home/mza/RiderProjects/Quizme.API/Quizme.Core/bin/Debug/net6.0/Quizme.Core.deps.json
+/home/mza/RiderProjects/Quizme.API/Quizme.Core/bin/Debug/net6.0/Quizme.Core.dll
+/home/mza/RiderProjects/Quizme.API/Quizme.Core/bin/Debug/net6.0/Quizme.Core.pdb
+/home/mza/RiderProjects/Quizme.API/Quizme.Core/obj/Debug/net6.0/Quizme.Core.csproj.AssemblyReference.cache
+/home/mza/RiderProjects/Quizme.API/Quizme.Core/obj/Debug/net6.0/Quizme.Core.GeneratedMSBuildEditorConfig.editorconfig
+/home/mza/RiderProjects/Quizme.API/Quizme.Core/obj/Debug/net6.0/Quizme.Core.AssemblyInfoInputs.cache
+/home/mza/RiderProjects/Quizme.API/Quizme.Core/obj/Debug/net6.0/Quizme.Core.AssemblyInfo.cs
+/home/mza/RiderProjects/Quizme.API/Quizme.Core/obj/Debug/net6.0/Quizme.Core.csproj.CoreCompileInputs.cache
+/home/mza/RiderProjects/Quizme.API/Quizme.Core/obj/Debug/net6.0/Quizme.Core.dll
+/home/mza/RiderProjects/Quizme.API/Quizme.Core/obj/Debug/net6.0/refint/Quizme.Core.dll
+/home/mza/RiderProjects/Quizme.API/Quizme.Core/obj/Debug/net6.0/Quizme.Core.pdb
+/home/mza/RiderProjects/Quizme.API/Quizme.Core/obj/Debug/net6.0/ref/Quizme.Core.dll
+/home/mza/RiderProjects/Quizme.API/Quizme.Core/bin/Debug/net6.0/Quizme.Infrastructure.dll
+/home/mza/RiderProjects/Quizme.API/Quizme.Core/bin/Debug/net6.0/Quizme.Infrastructure.pdb
+/home/mza/RiderProjects/Quizme.API/Quizme.Core/obj/Debug/net6.0/Quizme.Core.csproj.CopyComplete
