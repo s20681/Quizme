@@ -1,5 +1,6 @@
 using Quizme.Core.DTO;
 using Quizme.Infrastructure.Entities;
+using Quizme.Infrastructure.Exceptions;
 using Quizme.Infrastructure.Repository;
 
 namespace Quizme.Infrastructure.Services;
@@ -21,11 +22,17 @@ public class QuestionSetService : IQuestionSetService
     {
         var user = await _userRepository.GetByIdAsync(dto.OwnerId);
 
-        await _questionSetRepository.AddAsync(new QuestionSet()
+        if (user != null)
         {
-            OwnerId = user.Id,
-            TimeLimit = dto.TimeLimit,
-            Questions = new List<Question>()
-        });
+            var questionSet = await _questionSetRepository.CreateAndGetAsync(
+                new QuestionSet(
+                    dto.OwnerId,
+                    dto.TimeLimit
+                ));
+        }
+        else
+        {
+            throw new EntityNotFoundException();
+        }
     }
 }

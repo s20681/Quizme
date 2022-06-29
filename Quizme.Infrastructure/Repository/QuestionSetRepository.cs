@@ -22,6 +22,16 @@ public class QuestionSetRepository : IQuestionSetRepository
         throw new NotImplementedException();
     }
 
+    public async Task<QuestionSet> CreateAndGetAsync(QuestionSet questionSet)
+    {
+        questionSet.DateOfCreation = DateTime.Now;
+        questionSet.DateOfUpdate = DateTime.Now;
+        await _mainContext.AddAsync(questionSet);
+        await _mainContext.SaveChangesAsync();
+
+        return questionSet;
+    }
+
     public Task AddAsync(QuestionSet entity)
     {
         throw new NotImplementedException();

@@ -35,7 +35,7 @@ public class QuizService : IQuizService
         var quizzes = await _quizRepository.GetAllAsync();
         var highestResultQuiz = quizzes.MaxBy(x => x.Result);
 
-        if (highestResultQuiz == null) return null;
+        if (highestResultQuiz == null) return new QuizBasicInformationResponseDto(0);
 
         return new QuizBasicInformationResponseDto(
             highestResultQuiz.Respondent.Name,

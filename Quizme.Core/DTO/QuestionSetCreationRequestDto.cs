@@ -2,12 +2,14 @@ namespace Quizme.Core.DTO;
 
 public class QuestionSetCreationRequestDto
 {
-    public int? OwnerId { get; set; }
+    public String Title { get; set; } 
     public int? TimeLimit { get; set; }
-
-    public QuestionSetCreationRequestDto(int? ownerId, int? timeLimit)
+    public int? OwnerId { get; set; }
+    
+    public QuestionSetCreationRequestDto(string title, int? timeLimit, int? ownerId)
     {
-        OwnerId = ownerId;
+        Title = title;
         TimeLimit = timeLimit;
+        OwnerId = ownerId;
     }
 }

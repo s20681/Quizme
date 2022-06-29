@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using Quizme.Infrastructure.Context;
 using Quizme.Infrastructure.Entities;
 
@@ -17,9 +18,9 @@ public class UserRepository : IUserRepository
         throw new NotImplementedException();
     }
 
-    public Task<User> GetByIdAsync(int id)
+    public async Task<User> GetByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        return await _mainContext.User.SingleOrDefaultAsync(x => x.Id == id);
     }
 
     public Task AddAsync(User entity)
