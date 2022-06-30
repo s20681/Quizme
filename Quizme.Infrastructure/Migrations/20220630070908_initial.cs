@@ -48,6 +48,7 @@ namespace Quizme.Infrastructure.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
                     Email = table.Column<string>(type: "TEXT", nullable: false),
+                    Password = table.Column<string>(type: "TEXT", nullable: false),
                     DateOfCreation = table.Column<DateTime>(type: "TEXT", nullable: false),
                     DateOfUpdate = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
@@ -62,6 +63,7 @@ namespace Quizme.Infrastructure.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
+                    Title = table.Column<string>(type: "TEXT", nullable: false),
                     OwnerId = table.Column<int>(type: "INTEGER", nullable: true),
                     TimeLimit = table.Column<int>(type: "INTEGER", nullable: true),
                     DateOfCreation = table.Column<DateTime>(type: "TEXT", nullable: false),
@@ -89,7 +91,7 @@ namespace Quizme.Infrastructure.Migrations
                     TimeEnded = table.Column<DateTime>(type: "TEXT", nullable: false),
                     IsDone = table.Column<bool>(type: "INTEGER", nullable: false),
                     RespondentId = table.Column<int>(type: "INTEGER", nullable: false),
-                    QuestionSetId = table.Column<int>(type: "INTEGER", nullable: true),
+                    QuestionSetId = table.Column<int>(type: "INTEGER", nullable: false),
                     DateOfCreation = table.Column<DateTime>(type: "TEXT", nullable: false),
                     DateOfUpdate = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
@@ -100,7 +102,8 @@ namespace Quizme.Infrastructure.Migrations
                         name: "FK_Quiz_QuestionSet_QuestionSetId",
                         column: x => x.QuestionSetId,
                         principalTable: "QuestionSet",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Quiz_User_RespondentId",
                         column: x => x.RespondentId,

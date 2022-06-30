@@ -149,6 +149,10 @@ namespace Quizme.Infrastructure.Migrations
                     b.Property<int?>("TimeLimit")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.HasKey("Id");
 
                     b.HasIndex("OwnerId");
@@ -171,7 +175,7 @@ namespace Quizme.Infrastructure.Migrations
                     b.Property<bool>("IsDone")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("QuestionSetId")
+                    b.Property<int>("QuestionSetId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("RespondentId")
@@ -215,6 +219,10 @@ namespace Quizme.Infrastructure.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -268,15 +276,19 @@ namespace Quizme.Infrastructure.Migrations
 
             modelBuilder.Entity("Quizme.Infrastructure.Entities.Quiz", b =>
                 {
-                    b.HasOne("Quizme.Infrastructure.Entities.QuestionSet", null)
+                    b.HasOne("Quizme.Infrastructure.Entities.QuestionSet", "QuestionSet")
                         .WithMany("Quizzes")
-                        .HasForeignKey("QuestionSetId");
+                        .HasForeignKey("QuestionSetId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Quizme.Infrastructure.Entities.User", "Respondent")
                         .WithMany()
                         .HasForeignKey("RespondentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("QuestionSet");
 
                     b.Navigation("Respondent");
                 });

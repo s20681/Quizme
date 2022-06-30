@@ -26,6 +26,7 @@ builder.Services.AddScoped<IQuestionSetService, QuestionSetService>();
 
 //is this one right? i need to use user repository in questionset service above.
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 
 var app = builder.Build();

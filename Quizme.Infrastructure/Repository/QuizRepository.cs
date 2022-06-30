@@ -43,7 +43,7 @@ public class QuizRepository : IQuizRepository
 
     public async Task AddAsync(Quiz entity)
     {
-        //checks if quiz with same 
+        //checks if quiz with same values
         var quizAlreadyFound = await _mainContext.Quiz.SingleOrDefaultAsync(
             x => x.Respondent == entity.Respondent
                  && x.QuestionSet == entity.QuestionSet
