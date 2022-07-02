@@ -34,6 +34,9 @@ builder.Services.AddScoped<IQuestionService, QuestionService>();
 builder.Services.AddScoped<IAnswerRepository, AnswerRepository>();
 builder.Services.AddScoped<IAnswerService, AnswerService>();
 
+builder.Services.AddScoped<IQuestionSetRepository, QuestionSetRepository>();
+builder.Services.AddScoped<IQuestionSetService, QuestionSetService>();
+
 
 var app = builder.Build();
 

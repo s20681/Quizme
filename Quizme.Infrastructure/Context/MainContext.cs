@@ -21,4 +21,18 @@ public class MainContext : DbContext
     {
         optionsBuilder.UseSqlite("DataSource=dbo.Quizme.db");
     }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Question>()
+            .HasMany(x => x.Answers)
+            .WithOne(x => x.Question)
+            .OnDelete(DeleteBehavior.Cascade);
+
+
+        modelBuilder.Entity<QuestionSet>()
+            .HasMany(x => x.Questions)
+            .WithOne(x => x.QuestionSet)
+            .OnDelete(DeleteBehavior.Cascade);
+    }
 }

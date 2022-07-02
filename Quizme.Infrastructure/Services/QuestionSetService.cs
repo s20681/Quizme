@@ -35,4 +35,14 @@ public class QuestionSetService : IQuestionSetService
             throw new EntityNotFoundException();
         }
     }
+
+    public Task AddQuestionAsync(Question question)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task CreateNewQuestionAsync(Question question)
+    {
+        throw new NotImplementedException();
+    }
 }

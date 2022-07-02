@@ -11,7 +11,7 @@ using Quizme.Infrastructure.Context;
 namespace Quizme.Infrastructure.Migrations
 {
     [DbContext(typeof(MainContext))]
-    [Migration("20220630070908_initial")]
+    [Migration("20220702150329_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -118,6 +118,7 @@ namespace Quizme.Infrastructure.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Text")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -237,7 +238,8 @@ namespace Quizme.Infrastructure.Migrations
                 {
                     b.HasOne("Quizme.Infrastructure.Entities.Question", "Question")
                         .WithMany("Answers")
-                        .HasForeignKey("QuestionId");
+                        .HasForeignKey("QuestionId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("Question");
                 });
@@ -254,7 +256,8 @@ namespace Quizme.Infrastructure.Migrations
 
                     b.HasOne("Quizme.Infrastructure.Entities.QuestionSet", "QuestionSet")
                         .WithMany("Questions")
-                        .HasForeignKey("QuestionSetId");
+                        .HasForeignKey("QuestionSetId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Quizme.Infrastructure.Entities.Quiz", null)
                         .WithMany("Questions")

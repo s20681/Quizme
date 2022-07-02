@@ -15,6 +15,13 @@ public class QuestionController : ControllerBase
         _questionService = questionService;
     }
     
+    [HttpGet("Get/{questionId}")]
+    public async Task<IActionResult> getById(int questionId)
+    {
+        var question = await _questionService.GetByIdAsync(questionId);
+        return new OkObjectResult(question);
+    }
+    
     [HttpPost("Create")]
     public async Task<IActionResult> CreateNewQuestion([FromBody] Question question)
     {

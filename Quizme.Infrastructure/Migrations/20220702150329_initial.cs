@@ -118,7 +118,7 @@ namespace Quizme.Infrastructure.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Text = table.Column<string>(type: "TEXT", nullable: true),
+                    Text = table.Column<string>(type: "TEXT", nullable: false),
                     CategoryId = table.Column<int>(type: "INTEGER", nullable: true),
                     ImageId = table.Column<int>(type: "INTEGER", nullable: true),
                     QuestionSetId = table.Column<int>(type: "INTEGER", nullable: true),
@@ -143,7 +143,8 @@ namespace Quizme.Infrastructure.Migrations
                         name: "FK_Question_QuestionSet_QuestionSetId",
                         column: x => x.QuestionSetId,
                         principalTable: "QuestionSet",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Question_Quiz_QuizId",
                         column: x => x.QuizId,
@@ -170,7 +171,8 @@ namespace Quizme.Infrastructure.Migrations
                         name: "FK_Answer_Question_QuestionId",
                         column: x => x.QuestionId,
                         principalTable: "Question",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

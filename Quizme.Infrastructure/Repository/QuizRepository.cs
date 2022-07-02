@@ -29,16 +29,7 @@ public class QuizRepository : IQuizRepository
 
     public async Task<Quiz> GetByIdAsync(int id)
     {
-        var quiz = await _mainContext.Quiz.SingleOrDefaultAsync(x => x.Id == id);
-        if (quiz != null)
-        {
-            await _mainContext.Entry(quiz).Reference(x => x.Questions).LoadAsync();
-            await _mainContext.Entry(quiz).Reference(x => x.Respondent).LoadAsync();
-
-            return quiz;
-        }
-
-        throw new EntityNotFoundException();
+        return await _mainContext.Quiz.SingleOrDefaultAsync(x => x.Id == id);
     }
 
     public async Task AddAsync(Quiz entity)

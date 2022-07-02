@@ -1,4 +1,6 @@
 using Quizme.Core.DTO;
+using Quizme.Infrastructure.Entities;
+using Quizme.Infrastructure.Exceptions;
 using Quizme.Infrastructure.Repository;
 
 namespace Quizme.Infrastructure.Services;
@@ -6,10 +8,12 @@ namespace Quizme.Infrastructure.Services;
 public class QuizService : IQuizService
 {
     private readonly IQuizRepository _quizRepository;
+    private readonly IUserRepository _userRepository;
 
-    public QuizService(IQuizRepository quizRepository)
+    public QuizService(IQuizRepository quizRepository, IUserRepository userRepository)
     {
         _quizRepository = quizRepository;
+        _userRepository = userRepository;
     }
 
     public async Task<IEnumerable<QuizBasicInformationResponseDto>> GetAllQuizzesBasicInfosAsync()
@@ -47,6 +51,32 @@ public class QuizService : IQuizService
     }
 
     public Task<QuizBasicInformationResponseDto> GetTheQuickestSolution()
+    {
+        throw new NotImplementedException();
+    }
+
+    public async Task StartAsync(int userId)
+    {
+        var user = _userRepository.GetByIdAsync(userId).Result;
+
+        if (user != null)
+        {
+            var quiz = new Quiz();
+            quiz.TimeStarted = DateTime.Now;
+            quiz.Respondent = user;
+            await _quizRepository.AddAsync(quiz);
+        }
+        else
+        {
+            throw new EntityNotFoundException();
+        }
+    }
+    
+    public async Task StopAsync(int quizzId)
+    {
+    }
+
+    public Task<Quiz> GetByIdAsync(int questionId)
     {
         throw new NotImplementedException();
     }

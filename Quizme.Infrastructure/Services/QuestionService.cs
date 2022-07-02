@@ -22,13 +22,18 @@ public class QuestionService : IQuestionService
         return await _questionRepository.GetAllAsync();
     }
 
+    public async Task<Question> GetByIdAsync(int questionId)
+    {
+        return await _questionRepository.GetByIdAsync(questionId);
+    }
+
     public async Task<IEnumerable<Question>> GetByQuestionSetAsync(int questionSetId)
     {
         return await _questionRepository.GetByQuestionSetAsync(questionSetId);
     }
 
-    public async Task DeleteByIdAsync(int questonId)
+    public async Task DeleteByIdAsync(int questionId)
     { 
-        await _questionRepository.DeleteByIdAsync(questonId);
+        await _questionRepository.DeleteByIdAsync(questionId);
     }
 }
