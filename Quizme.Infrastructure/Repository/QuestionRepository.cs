@@ -1,5 +1,7 @@
+using Microsoft.EntityFrameworkCore;
 using Quizme.Infrastructure.Context;
 using Quizme.Infrastructure.Entities;
+using Quizme.Infrastructure.Exceptions;
 
 namespace Quizme.Infrastructure.Repository;
 
@@ -12,19 +14,20 @@ public class QuestionRepository : IQuestionRepository
         _mainContext = mainContext;
     }
 
-    public Task<IEnumerable<Question>> GetAllAsync()
+    public async Task<IEnumerable<Question>> GetAllAsync()
     {
-        throw new NotImplementedException();
+        return await _mainContext.Question.ToListAsync();
     }
 
-    public Task<Question> GetByIdAsync(int id)
+    public async Task<Question> GetByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        return await _mainContext.Question.SingleOrDefaultAsync(x => x.Id == id);
     }
 
-    public Task AddAsync(Question entity)
+    public async Task AddAsync(Question entity)
     {
-        throw new NotImplementedException();
+        await _mainContext.AddAsync(entity);
+        await _mainContext.SaveChangesAsync();
     }
 
     public Task UpdateAsync(Question entity)
@@ -32,8 +35,23 @@ public class QuestionRepository : IQuestionRepository
         throw new NotImplementedException();
     }
 
-    public Task DeleteByIdAsync(int id)
+    public async Task DeleteByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        var toDelete = await _mainContext.Question.SingleOrDefaultAsync(x => x.Id == id);
+        if (toDelete != null)
+        {
+            _mainContext.Question.Remove(toDelete);
+            await _mainContext.SaveChangesAsync();    
+        }
+        else
+        {
+            throw new EntityNotFoundException();    
+        }
+    }
+
+    public async Task<IEnumerable<Question>> GetByQuestionSetAsync(int questionSetId)
+    {
+        var questions = await _mainContext.Question.ToListAsync();
+        return questions.FindAll(x => x.QuestionSetId == questionSetId);
     }
 }
