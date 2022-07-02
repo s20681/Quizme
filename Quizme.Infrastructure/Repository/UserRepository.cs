@@ -15,9 +15,9 @@ public class UserRepository : IUserRepository
         _mainContext = mainContext;
     }
 
-    public Task<IEnumerable<User>> GetAllAsync()
+    public async Task<IEnumerable<User>> GetAllAsync()
     {
-        throw new NotImplementedException();
+        return await _mainContext.User.ToListAsync();
     }
 
     public async Task<User> GetByIdAsync(int id)

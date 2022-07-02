@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using System.Web;
 using Quizme.Core.DTO;
 using Quizme.Infrastructure.Entities;
 using Quizme.Infrastructure.Exceptions;
@@ -30,4 +31,10 @@ public class UserService : IUserService
             throw new DuplicateEntityException();
         }
     }
+
+    public async Task<IEnumerable<User>> GetAllUsersAsync()
+    {
+        return await _userRepository.GetAllAsync();
+    }
+    
 }

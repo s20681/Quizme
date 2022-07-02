@@ -21,4 +21,11 @@ public class UserController : ControllerBase
         await _userService.CreateNewUserAccountAsync(dto);
         return new NoContentResult();
     }
+    
+    [HttpGet("All")]
+    public async Task<IActionResult> All()
+    {
+        var users = await _userService.GetAllUsersAsync();
+        return new OkObjectResult(users);
+    }
 }
